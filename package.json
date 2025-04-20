@@ -1,0 +1,23 @@
+{
+  "name": "stress-relief",
+  "version": "1.0.0",
+  "description": "Stress relief app for April 2025 Code Jam",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aar7/stress-relief.git"
+  },
+  "author": "Aaron Meighoo, Britney Gaines, Pierrebrunel Jacobs, Jaelin Cooper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aar7/stress-relief/issues"
+  },
+  "homepage": "https://github.com/Aar7/stress-relief#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "postcss-loader": "^8.1.1"
+  }
+}
