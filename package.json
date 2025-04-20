@@ -1,0 +1,36 @@
+{
+  "name": "stress-relief",
+  "version": "1.0.0",
+  "description": "Stress relief app for April 2025 Code Jam",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aar7/stress-relief.git"
+  },
+  "author": "Aaron Meighoo, Britney Gaines, Pierrebrunel Jacobs, Jaelin Cooper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aar7/stress-relief/issues"
+  },
+  "homepage": "https://github.com/Aar7/stress-relief#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "autoprefixer": "^10.4.21",
+    "babel-loader": "^10.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^7.1.2",
+    "cssnano": "^7.0.6",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.99.6",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
+  }
+}
