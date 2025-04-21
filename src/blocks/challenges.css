@@ -23,3 +23,11 @@
   display: flex;
   flex-direction: column;
 }
+
+.challenge__complete-button {
+  cursor: pointer;
+}
+
+.challenge__complete-button_inactive {
+  background-color: gray;
+}
