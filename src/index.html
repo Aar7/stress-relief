@@ -8,7 +8,7 @@
       content="Aaron Meighoo, Britney Gaines, Pierrebrunel Jacobs, Jaelin Cooper"
     />
     <meta name="keywords" content="destress, relax" />
-    <!-- <link rel="icon" href=""/> -->
+   <link rel="stylesheet" href="index.css">
     <title>Defuse</title>
   </head>
   <body class="body">
@@ -17,9 +17,119 @@
       Here we'll put the title of the site, among other things that usually go
       in a header
     </header>
-    <main class="main">
-      This is the body. It's gray. This is where we'll create sections with our
-      various ideas.
+    <main class="routine">
+      <section class="routine__intro">
+        <h1>Cozyclock🪵</h1>
+        <p>Create your cozy bedtime routine to wind down and sleep better.</p>
+      </section>
+
+      <!-- routine builder -->
+      <section class="routine__builder">
+        <h2>Build Your Routine</h2>
+
+        <ul id="routineList" class="routine__list">
+          <li>Meditation</li>
+          <li>Light Streching</li>
+          <li>Reduce Screen Time</li>
+          <li>Read a Book</li>
+          <li>Deep Breathing</li>
+        </ul>
+        <button id="deleteRotine-Btn">+ Delete Routine Step</button>
+        <button id="addStep-Btn">+ Add Routine Step</button>
+      </section>
+
+      <!-- step template -->
+      <template id="routine-step-template">
+        <li class="routine__step">
+          <div class="routine__step-info">
+            <span class="routine__step-name">Step Name</span>
+            <span class="routine__step-duration">Duration</span>
+          </div>
+          <button class="routine__step-done-btn">Done</button>
+        </li>
+      </template>
+
+      <div id="timerSection" style="text-align: center">
+        <h2 id="currentStepTitle">Ready to start</h2>
+
+        <div
+          style="position: relative; width: 150px; height: 150px; margin: auto"
+        >
+          <svg width="150" height="150">
+            <circle
+              cx="75"
+              cy="75"
+              r="70"
+              stroke="#e0e0e0"
+              stroke-width="10"
+              fill="none"
+            />
+            <circle
+              id="progressRing"
+              cx="75"
+              cy="75"
+              r="70"
+              stroke="#4caf50"
+              stroke-width="10"
+              fill="none"
+              stroke-dasharray="439.6"
+              stroke-dashoffset="0"
+              transform="rotate(-90 75 75)"
+            />
+          </svg>
+          <div
+            id="countdownDisplay"
+            style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 1.5rem;
+            "
+          >
+            00:00
+          </div>
+        </div>
+
+        <button id="pauseResume-Btn">Pause</button>
+      </div>
+
+
+      <!-- wind down timer -->
+      <section class="routine__timer">
+        <h2>Wind Down Timer</h2>
+        <p>Time to unplug and wind down 5-minute meditation coming up</p>
+        <div id="countdownDisplay">00:00</div>
+        <button id="stopTimer-Btn">Stop Timer</button>
+        <button id="pauseTimer-Btn">Pause Timer</button>
+        <button id="startTimer-Btn">Start Timer</button>
+      </section>
+
+      <!-- reminders -->
+      <section class="routine__reminders">
+        <h2>Reminders</h2>
+        <p>Set reminders to unplug and relax.</p>
+        <ul>
+          <li>“clean room at 1pm everyday.”</li>
+          <li>“Turn phone off for 25 minutes”</li>
+          <li>“Read for 20 minutes”</li>
+          <li>“Time to unplug and wind down.”</li>
+          <li>“5-minute meditation coming up.”</li>
+        </ul>
+
+        <button id="setReminderBtn">Set Reminder</button>
+        <button id="deleteReminderBtn">Delete Reminder</button>
+        <button id="CompletedReminderBtn">Completed Reminder</button>
+      </section>
+
+      <!-- progress tracker -->
+      <section class="routine__progress">
+        <h2>Progress Tracker</h2>
+      </section>
+
+      <!-- sleep quality rating -->
+       
+
     </main>
     <footer class="footer">
       This is the footer...it is pink. It will contain our information and other
