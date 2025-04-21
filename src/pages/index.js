@@ -1,22 +1,20 @@
 import "./index.css";
 import { challengeList } from "../utils/challenges.js";
-import Challenge from "../components/Challenge.js";
-let numOfChallenges = 2;
-
-const dailyChallenge = document.querySelector(".challenges__list");
+import {
+  checkDayStreak,
+  checkLocalStorage,
+  getChallenges,
+  getLocal,
+  setLocal,
+} from "../components/ChallengeMethods.js";
+import { dailyChallengeList } from "../utils/domElements.js";
+// import Challenge from "../components/Challenge.js";
+let numOfChallenges = 3;
+const today = new Date();
 
 // need to initialise the localStorage object if it is empty
-if (getLocal("challengePoints")) {
-  // other checks for localStorage items
-} else {
-  setLocal("challengePoints", 0);
-}
-function getLocal(item) {
-  return localStorage.getItem(item);
-}
-function setLocal(item, content) {
-  localStorage.setItem(item, content);
-}
+checkLocalStorage();
+checkDayStreak(today);
 
 function handleClickCompleteChallenge(challenge) {
   challenge._completeButton.textContent = "Challenge complete!";
@@ -34,28 +32,11 @@ function handleClickCompleteChallenge(challenge) {
   setLocal("challengePoints", JSON.parse(getLocal("challengePoints")) + diff);
 }
 
-function getRandomIndex(length) {
-  return Math.floor(Math.random() * length);
-}
+getChallenges(
+  challengeList,
+  numOfChallenges,
+  dailyChallengeList,
+  handleClickCompleteChallenge
+);
 
-function getChallenges() {
-  let selectedIndices = [];
-  for (let i = 0; i < numOfChallenges; i++) {
-    console.log(`Iteration: ${i}`);
-    let randIndex = getRandomIndex(challengeList.length);
-    while (selectedIndices.includes(randIndex)) {
-      randIndex = getRandomIndex(challengeList.length);
-    }
-
-    const challenge = challengeList[randIndex];
-    console.log(challenge);
-    const challengeCard = new Challenge(
-      challenge,
-      handleClickCompleteChallenge
-    );
-    dailyChallenge.append(challengeCard.returnChallenge());
-    selectedIndices.push(randIndex);
-  }
-}
-
-getChallenges();
+console.log(localStorage);
