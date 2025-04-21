@@ -16,8 +16,24 @@
       Here we'll put the title of the site, among other things that usually go
       in a header
     </header>
+    <main class="main">
       This is the body. It's gray. This is where we'll create sections with our
       various ideas.
+
+      <section class="challenges">
+        <h2 class="challenges__heading">Daily Challenges</h2>
+        <ul class="challenges__list">
+          <template id="add-challenge">
+            <li class="challenge">
+              <p class="challenge__title"></p>
+              <button class="challenge__complete-button">
+                Click to complete!
+              </button>
+            </li>
+          </template>
+        </ul>
+      </section>
+
       <section id="calm-corner" class="calm__corner">
         <h2 class="calm__corner-title">Calm Corner</h2>
         <p class="calm__corner-subtitle">
