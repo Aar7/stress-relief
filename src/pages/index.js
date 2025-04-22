@@ -42,17 +42,30 @@ getChallenges(
 console.log(localStorage);
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
-  // === Routine Step Builder ===
+  // === Routine Steps ===
   const routineList = document.getElementById("routineList");
   const addStepBtn = document.getElementById("addStep-Btn");
   const deleteStepBtn = document.getElementById("deleteRotine-Btn");
-  const routineTemplate = document.getElementById("routine-step-template");
+  const stepTemplate = document.getElementById("routine-step-template");
 
   addStepBtn.addEventListener("click", () => {
-    const clone = routineTemplate.content.cloneNode(true);
-    routineList.appendChild(clone);
+    const stepName = prompt("Enter the step name:");
+    const duration = prompt("Enter duration ( 5 minutes):");
+
+    if (stepName && duration) {
+      const clone = stepTemplate.content.cloneNode(true);
+      const nameSpan = clone.querySelector(".routine__step-name");
+      const durationSpan = clone.querySelector(".routine__step-duration");
+
+      if (nameSpan && durationSpan) {
+        nameSpan.textContent = stepName;
+        durationSpan.textContent = duration;
+        routineList.appendChild(clone);
+      } else {
+        console.error("Missing .routine__step-name or .routine__step-duration");
+      }
+    }
   });
 
   deleteStepBtn.addEventListener("click", () => {
@@ -61,16 +74,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // === Timer ===
   let countdownInterval;
   let timeLeft = 300; // 5 minutes in seconds
-  const countdownDisplay = document.querySelectorAll("#countdownDisplay")[0];
+  const countdownDisplay = document.querySelector("#countdownDisplay");
   const startBtn = document.getElementById("startTimer-Btn");
   const pauseBtn = document.getElementById("pauseTimer-Btn");
   const stopBtn = document.getElementById("stopTimer-Btn");
 
   function updateTimerDisplay() {
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
     countdownDisplay.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   }
 
@@ -87,10 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
-  startBtn.addEventListener("click", () => startTimer());
-
+  startBtn.addEventListener("click", startTimer);
   pauseBtn.addEventListener("click", () => clearInterval(countdownInterval));
-
   stopBtn.addEventListener("click", () => {
     clearInterval(countdownInterval);
     timeLeft = 300;
@@ -99,10 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateTimerDisplay();
 
-  // === Reminder Buttons ===
+  // === Reminders ===
   const setReminderBtn = document.getElementById("setReminder-Btn");
   const deleteReminderBtn = document.getElementById("deleteReminder-Btn");
-  const completedReminderBtn = document.getElementById("CompletedRemindernpBtn");
   const reminderList = document.querySelector(".routine__reminders ul");
 
   setReminderBtn.addEventListener("click", () => {
@@ -114,26 +125,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-// Add this after you populate the reminder list
-reminderList.addEventListener("click", (e) => {
-  if (e.target.tagName === "LI") {
-    e.target.style.textDecoration =
-      e.target.style.textDecoration === "line-through" ? "none" : "line-through";
-  }
-});
-
-
+  reminderList.addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") {
+      e.target.style.textDecoration = e.target.style.textDecoration === "line-through" ? "none" : "line-through";
+    }
+  });
 
   deleteReminderBtn.addEventListener("click", () => {
     if (reminderList.lastElementChild) {
       reminderList.removeChild(reminderList.lastElementChild);
-    }
-  });
-
-  completedReminderBtn.addEventListener("click", () => {
-    const firstReminder = reminderList.querySelector("li");
-    if (firstReminder) {
-      firstReminder.style.textDecoration = "line-through";
     }
   });
 
@@ -149,47 +149,6 @@ reminderList.addEventListener("click", (e) => {
       alert("Please enter a number between 1 and 10.");
     }
   });
-
-  // === Daily Challenge Complete Button ===
-  const challengeTemplate = document.getElementById("add-challenge");
-  const challengesList = document.querySelector(".challenges__list");
-
-  // Example challenge (you can use dynamic data later)
-  const challengeClone = challengeTemplate.content.cloneNode(true);
-  challengeClone.querySelector(".challenge__title").textContent = "Drink water after waking up";
-  const completeBtn = challengeClone.querySelector(".challenge__complete-button");
-  completeBtn.addEventListener("click", () => {
-    completeBtn.textContent = "Completed ✅";
-    completeBtn.disabled = true;
-  });
-
-  challengesList.appendChild(challengeClone);
-});
-
-
-const addStepBtn = document.getElementById("addStep-Btn");
-const routineList = document.getElementById("routineList");
-const stepTemplate = document.getElementById("routine-step-template");
-
-addStepBtn.addEventListener("click", () => {
-  const stepName = prompt("Enter the step name:");
-  const duration = prompt("Enter duration ( 5 minutes):");
-
-  if (stepName && duration) {
-    const clone = stepTemplate.content.cloneNode(true);
-
-    const nameSpan = clone.querySelector(".routine__step-name");
-    const durationSpan = clone.querySelector(".routine__step-duration");
-
-    if (nameSpan && durationSpan) {
-      nameSpan.textContent = stepName;
-      durationSpan.textContent = duration;
-    } else {
-      console.error("Could not find .routine__step-name or .routine__step-duration");
-    }
-
-    routineList.appendChild(clone);
-  }
 });
 
 
