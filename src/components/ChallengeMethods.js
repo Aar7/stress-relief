@@ -24,18 +24,46 @@ export function checkLocalStorage() {
   }
 }
 
+/**
+ * Retrieves `item` from localStorage
+ * @param {json} item
+ * @returns
+ */
 export function getLocal(item) {
   return localStorage.getItem(item);
 }
 
+/**
+ * Sets `item` with `content` in localStorage
+ * @param {json} item
+ * @param {} content
+ */
 export function setLocal(item, content) {
   localStorage.setItem(item, content);
 }
 
-function createChallenge(challengeList, index, buttonCallback, domNodeList) {
+/**
+ * Creates a new `Challenge` object as a child in the specified node
+ * @param {object} challengeList
+ * @param {int} index
+ * @param {function} buttonCallback
+ * @param {node} domNodeList
+ */
+function createChallenge(
+  challengeList,
+  index,
+  buttonCallback,
+  domNodeList,
+  challengeComplete
+) {
   const challenge = challengeList[index];
 
-  const challengeCard = new Challenge(challenge, buttonCallback);
+  const challengeCard = new Challenge(
+    challenge,
+    index,
+    buttonCallback,
+    challengeComplete
+  );
   domNodeList.append(challengeCard.returnChallenge());
 }
 
@@ -54,6 +82,8 @@ export function getChallenges(
 ) {
   // if todayChallenges.length from LS is zero, create new daily challenges
   const todayChallenges = JSON.parse(getLocal("todayChallenges"));
+  console.log("todayChallenges: ");
+  console.log(todayChallenges);
 
   let selectedIndices = [];
 
@@ -71,20 +101,27 @@ export function getChallenges(
         challengeList,
         randIndex,
         handleClickCompleteChallenge,
-        dailyChallengeList
+        dailyChallengeList,
+        false
       );
-      selectedIndices.push(randIndex);
+      // selectedIndices.push(randIndex);
+      selectedIndices.push({
+        challengeID: randIndex,
+        challengeComplete: false,
+      });
     }
 
     // set the existing challenges here so they don't reset within 24 hours of appearing
     setLocal("todayChallenges", JSON.stringify(selectedIndices));
   } else {
     todayChallenges.forEach((item) => {
+      console.log(item);
       createChallenge(
         challengeList,
-        item,
+        item.challengeID,
         handleClickCompleteChallenge,
-        dailyChallengeList
+        dailyChallengeList,
+        item.challengeComplete
       );
       selectedIndices.push(item);
     });
