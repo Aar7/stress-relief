@@ -30,19 +30,41 @@ const today = new Date();
 checkLocalStorage();
 checkDayStreak(today);
 
+// function toggleButtonState(challengeComplete, challenge) {
+//   if (challengeComplete) {
+//     challenge._completeButton.textContent = "Challenge complete!";
+//     challenge._completeButton.classList.add(
+//       "challenge__complete-button_inactive"
+//     );
+//     challenge._completeButton.setAttribute("disabled", "");
+//   }
+// }
+
 function handleClickCompleteChallenge(challenge) {
-  challenge._completeButton.textContent = "Challenge complete!";
-  challenge._completeButton.classList.add(
-    "challenge__complete-button_inactive"
-  );
-  challenge._completeButton.setAttribute("disabled", "");
+  // console.log("Inside click-to-complete handler");
+  // console.log(challenge.challengeID);
+  challenge.toggleButtonState(true);
+  const temp = JSON.parse(getLocal("todayChallenges"));
+  console.log(temp);
+  temp.forEach((item) => {
+    if (item.challengeID == challenge.challengeID) {
+      item.challengeComplete = !item.challengeComplete;
+    }
+  });
+  setLocal("todayChallenges", JSON.stringify(temp));
+
+  // challenge._completeButton.textContent = "Challenge complete!";
+  // challenge._completeButton.classList.add(
+  //   "challenge__complete-button_inactive"
+  // );
+  // challenge._completeButton.setAttribute("disabled", "");
   const diff = challenge._difficulty;
   alert(
     `You've earned ${diff} ${
       diff == 1 ? "point" : "points"
     } for completing this challenge!`
   );
-  console.log(diff);
+  // console.log(diff);
   setLocal("challengePoints", JSON.parse(getLocal("challengePoints")) + diff);
 }
 

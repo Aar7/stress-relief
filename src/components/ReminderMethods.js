@@ -19,4 +19,3 @@ export function setReminder(
   }
   // });
 }
-// method to delete a reminder
