@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Monsterrat";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Playwrite";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./fonts/PlaywriteITModerna-VariableFont_wght.ttf")
+    format("truetype");
+}

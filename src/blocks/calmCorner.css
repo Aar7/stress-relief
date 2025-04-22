@@ -1,33 +1,33 @@
 .calm__corner {
   color: #fff;
-  background-color: rgba(135, 80, 180, 0.6);
-  padding: 100px 80px 215px;
+  background-color: url(../images/background-defuse.jpg);
+  z-index: 1;
+  padding: 80px 70px 190px;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .calm__corner-title {
   margin: 0 0 24px;
-  font-family: "Inter", "Arial", sans-serif;
-  font-style: normal;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   font-weight: 500;
-  font-size: 44px;
-  line-height: 52px;
+  font-size: 40px;
+  line-height: 1;
   max-width: 580px;
 }
 
 .calm__corner-subtitle {
   margin: 0 0 80px;
-  font-family: "Noto Serif", "Times New Roman", serif;
-  font-style: normal;
   font-weight: normal;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 1;
   max-width: 438px;
 }
 
 .calm__corner-videos {
-  margin: 0;
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -38,15 +38,16 @@
   display: flex;
   margin: 24px 0 0;
   justify-content: space-between;
-  font-family: "Inter", "Arial", sans-serif;
+
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 1;
 }
 
 .calm__corner-iframe {
   border: none;
   width: 480px;
   height: 273px;
+  display: flex;
 }

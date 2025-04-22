@@ -77,16 +77,19 @@ getChallenges(
 
 console.log(localStorage);
 
+
 // === Routine Steps ===
 
 addStepBtn.addEventListener("click", () => {
   const stepName = prompt("Enter the step name:");
   const duration = prompt("Enter duration ( 5 minutes):");
 
+
   if (stepName && duration) {
     const clone = stepTemplate.content.cloneNode(true);
     const nameSpan = clone.querySelector(".routine__step-name");
     const durationSpan = clone.querySelector(".routine__step-duration");
+
 
     if (nameSpan && durationSpan) {
       nameSpan.textContent = stepName;
@@ -95,6 +98,23 @@ addStepBtn.addEventListener("click", () => {
     } else {
       console.error("Missing .routine__step-name or .routine__step-duration");
     }
+
+  // === Timer ===
+  let countdownInterval;
+  let timeLeft = 300; // 5 minutes in seconds
+  const countdownDisplay = document.querySelector("#countdownDisplay");
+  const startBtn = document.getElementById("startTimer-Btn");
+  const pauseBtn = document.getElementById("pauseTimer-Btn");
+  const stopBtn = document.getElementById("stopTimer-Btn");
+
+  function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    countdownDisplay.textContent = `${String(minutes).padStart(
+      2,
+      "0"
+    )}:${String(seconds).padStart(2, "0")}`;
+
   }
 });
 
@@ -129,7 +149,9 @@ function startTimer() {
   }, 1000);
 }
 
+
 updateTimerDisplay();
+
 
 // === Reminders ===
 
@@ -146,6 +168,7 @@ stopBtn.addEventListener("click", () => {
   updateTimerDisplay();
 });
 
+
 setReminderBtn.addEventListener("click", () => {
   console.log("Set reminder button pressed");
   const newReminder = prompt("Enter your reminder:");
@@ -161,3 +184,4 @@ submitRatingBtn.addEventListener("click", () => {
     alert("Please enter a number between 1 and 10.");
   }
 });
+
