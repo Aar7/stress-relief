@@ -95,23 +95,24 @@
           <li>Read a Book</li>
           <li>Deep Breathing</li>
         </ul>
-        <button id="deleteRotine-Btn">+ Delete Routine Step</button>
-        <button id="addStep-Btn">+ Add Routine Step</button>
+        <button id="deleteRotine-Btn">- Delete Routine Step</button>
+        <button id="addStep-Btn">- Add Routine Step</button>
       </section>
 
       <!-- step template -->
       <template id="routine-step-template">
         <li class="routine__step">
           <div class="routine__step-info">
-            <span class="routine__step-name">Step Name</span>
-            <span class="routine__step-duration">Duration</span>
+            <span class=""></span>
+            <span class=""></span>
           </div>
-          <button class="routine__step-done-btn">Done</button>
+          <button class="routine__step-dine-btn">done</button>
         </li>
       </template>
+      
 
-      <div id="timerSection" style="text-align: center">
-        <h2 id="currentStepTitle">Ready to start</h2>
+   <div id="timerSection" style="text-align: center">
+        <h2 id="currentStepTitle">Wind Down Timer</h2>
 
         <div
           style="position: relative; width: 150px; height: 150px; margin: auto"
@@ -151,15 +152,13 @@
             00:00
           </div>
         </div>
-
-        <button id="pauseResume-Btn">Pause</button>
       </div>
 
       <!-- wind down timer -->
       <section class="routine__timer">
         <h2>Wind Down Timer</h2>
         <p>Time to unplug and wind down 5-minute meditation coming up</p>
-        <div id="countdownDisplay">00:00</div>
+        <div id="countdownDisplay"></div>
         <button id="stopTimer-Btn">Stop Timer</button>
         <button id="pauseTimer-Btn">Pause Timer</button>
         <button id="startTimer-Btn">Start Timer</button>
@@ -177,17 +176,25 @@
           <li>“5-minute meditation coming up.”</li>
         </ul>
 
-        <button id="setReminderBtn">Set Reminder</button>
-        <button id="deleteReminderBtn">Delete Reminder</button>
-        <button id="CompletedReminderBtn">Completed Reminder</button>
+        <button id="setReminder-Btn">Set Reminder</button>
+        <button id="deleteReminder-Btn">Delete Reminder</button>
+        <button id="CompletedRemindernpBtn">Completed Reminder</button>
       </section>
 
       <!-- progress tracker -->
       <section class="routine__progress">
         <h2>Progress Tracker</h2>
+
       </section>
 
       <!-- sleep quality rating -->
+       <section class="routine__sleep-quality">
+        <h2>Sleep Quality Rating</h2>
+        <p>Rate your sleep quality on a scale of 1-10.</p>
+        <input type="number" min="0" max="10" placeholder="Rate                      " />
+        <button id="submitRating-Btn">Submit Your Rating</button>
+        </section>
+
     </main>
     <footer class="footer">
       This is the footer...it is pink. It will contain our information and other
