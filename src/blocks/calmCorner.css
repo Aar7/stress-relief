@@ -5,7 +5,6 @@
   padding: 80px 70px 190px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 }
 
 .calm__corner-title {
@@ -31,9 +30,8 @@
 .calm__corner-videos {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 40px;
   list-style-type: none;
-  width: 100%;
 }
 
 .calm__corner-caption {

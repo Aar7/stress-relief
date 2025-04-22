@@ -41,7 +41,6 @@ getChallenges(
 
 console.log(localStorage);
 
-
 document.addEventListener("DOMContentLoaded", () => {
   // === Routine Steps ===
   const routineList = document.getElementById("routineList");
@@ -85,7 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateTimerDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
-    countdownDisplay.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    countdownDisplay.textContent = `${String(minutes).padStart(
+      2,
+      "0"
+    )}:${String(seconds).padStart(2, "0")}`;
   }
 
   function startTimer() {
@@ -127,7 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reminderList.addEventListener("click", (e) => {
     if (e.target.tagName === "LI") {
-      e.target.style.textDecoration = e.target.style.textDecoration === "line-through" ? "none" : "line-through";
+      e.target.style.textDecoration =
+        e.target.style.textDecoration === "line-through"
+          ? "none"
+          : "line-through";
     }
   });
 
@@ -150,7 +155,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-
-
