@@ -22,9 +22,6 @@ export default class Challenge {
   }
 
   toggleButtonState(toggle) {
-    console.log(this._challengeComplete);
-    console.log(toggle);
-    console.log(this._challengeComplete | toggle);
     // console.log("Inside toggleButtonState");
     // console.log(this._challengeComplete);
     // this._challengeComplete = !this._challengeComplete;
