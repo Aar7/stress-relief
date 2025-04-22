@@ -82,10 +82,11 @@ export function getChallenges(
 ) {
   // if todayChallenges.length from LS is zero, create new daily challenges
   const todayChallenges = JSON.parse(getLocal("todayChallenges"));
-  console.log("todayChallenges: ");
-  console.log(todayChallenges);
+  // console.log("todayChallenges: ");
+  // console.log(todayChallenges);
 
-  let selectedIndices = [];
+  let selectedChallenges = []; // used to set localStorage
+  let selectedIndices = []; // used to check for duplicates
 
   if (todayChallenges.length == 0) {
     // set random new challenges
@@ -97,6 +98,8 @@ export function getChallenges(
         randIndex = getRandomIndex(challengeList.length);
       }
 
+      // console.log(`Random Index: ${randIndex}`);
+
       createChallenge(
         challengeList,
         randIndex,
@@ -104,18 +107,19 @@ export function getChallenges(
         dailyChallengeList,
         false
       );
-      // selectedIndices.push(randIndex);
-      selectedIndices.push({
+      // selectedChallenges.push(randIndex);
+      selectedIndices.push(randIndex);
+      selectedChallenges.push({
         challengeID: randIndex,
         challengeComplete: false,
       });
     }
 
     // set the existing challenges here so they don't reset within 24 hours of appearing
-    setLocal("todayChallenges", JSON.stringify(selectedIndices));
+    setLocal("todayChallenges", JSON.stringify(selectedChallenges));
   } else {
     todayChallenges.forEach((item) => {
-      console.log(item);
+      // console.log(item);
       createChallenge(
         challengeList,
         item.challengeID,
@@ -123,7 +127,7 @@ export function getChallenges(
         dailyChallengeList,
         item.challengeComplete
       );
-      selectedIndices.push(item);
+      selectedChallenges.push(item);
     });
   }
 }
