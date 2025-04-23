@@ -128,7 +128,7 @@ console.log(localStorage);
 
 // === Timer ===
 let countdownInterval;
-let timeLeft = 5; // 5 minutes in seconds
+let timeLeft = 300; // 5 minutes in seconds
 
 function updateTimerDisplay() {
   const minutes = Math.floor(timeLeft / 60);
