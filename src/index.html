@@ -38,22 +38,17 @@
           </template>
         </div>
       </section>
-      <!-- <section class="routine__intro"> -->
-      <!-- </section> -->
 
-      <!-- routine builder -->
-      <div class="cozy__clock">
-        <section class="routine__builder">
-          <h2 class="routine__builder-title">Cozyclock🪵</h2>
-          <p class="routine__builder-subtitle">
+      <section class="cozy-clock">
+        <div class="routine-builder">
+          <h2 class="routine-builder__title">Cozyclock🪵</h2>
+          <p class="routine-builder__subtitle">
             Create your cozy bedtime routine to wind down and sleep better.
           </p>
-          <h2 class="routine__builder__header">Build Your Routine</h2>
-          <p class="routine__builder__example">
-            e.g Read a Book for 25 minutes
-          </p>
+          <h2 class="routine-builder__header">Build Your Routine</h2>
+          <p class="routine-builder__example">e.g Read a Book for 25 minutes</p>
 
-          <ul id="routine__builder__list" class="routine__list">
+          <ul id="routine-builder__list" class="routine-builder__list">
             <template id="add-routine-step">
               <li class="routine__step">
                 <p class="routine__step-info">
@@ -61,27 +56,20 @@
                   <span class="routine__step-duration"></span> minutes
                 </p>
                 <button class="routine__step-done-btn">Done</button>
-                <button class="routine__step-delete-btn" id="deleteRotine-Btn">
+                <button class="routine__step-delete-btn" id="deleteRoutine-Btn">
                   -
                 </button>
               </li>
             </template>
           </ul>
           <button id="addStep-Btn">+ Add Routine Step</button>
-        </section>
+        </div>
         <!-- step template -->
 
-        <div id="timerSection" style="text-align: center">
+        <div class="timer" style="text-align: center">
           <h2 id="currentStepTitle">Wind Down Timer</h2>
 
-          <div
-            style="
-              position: relative;
-              width: 150px;
-              height: 150px;
-              margin: auto;
-            "
-          >
+          <div class="timer__circle">
             <svg width="150" height="150">
               <circle
                 cx="75"
@@ -104,38 +92,31 @@
                 transform="rotate(-90 75 75)"
               />
             </svg>
-            <div
-              id="countdownDisplay"
-              style="
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 1.5rem;
-              "
-            >
+            <div class="timer__countdownDisplay" id="countdownDisplay">
               00:00
             </div>
           </div>
         </div>
 
         <!-- wind down timer -->
-        <section class="routine__timer">
-          <h2>Wind Down Timer</h2>
-          <p>Time to unplug and wind down 5-minute meditation coming up</p>
+        <div class="routine-timer">
+          <h2 class="routine-timer__header">Wind Down Timer</h2>
+          <p class="routine-timer__subtitle">
+            Time to unplug and wind down 5-minute meditation coming up
+          </p>
           <div id="countdownDisplay"></div>
           <button id="stopTimer-Btn">Stop and reset timer</button>
           <button id="pauseTimer-Btn">Pause timer</button>
           <button id="startTimer-Btn">Start timer</button>
-        </section>
+        </div>
 
         <!-- reminders -->
-        <section class="routine__reminders">
-          <h2 class="routine__reminders__heading">Reminders</h2>
-          <p class="routine__reminders__text">
+        <div class="routine-reminders">
+          <h2 class="routine-reminders__heading">Reminders</h2>
+          <p class="routine-reminders__text">
             Set reminders to unplug and relax.
           </p>
-          <ul class="routine__reminders__list">
+          <ul class="routine-reminders__list">
             <template id="add-reminder">
               <li class="reminder">
                 <p class="reminder__name"></p>
@@ -146,15 +127,15 @@
           </ul>
 
           <button id="setReminder-Btn">Set Reminder</button>
-        </section>
+        </div>
 
         <!-- progress tracker -->
-        <section class="routine__progress">
-          <h2>Progress Tracker</h2>
-        </section>
+        <!-- <div class="routine-progress">
+          <h2 class="routine-progress__header">Progress Tracker</h2>
+        </div> -->
 
         <!-- sleep quality rating -->
-        <section class="routine__sleep-quality">
+        <div class="routine__sleep-quality">
           <h2>Sleep Quality Rating</h2>
           <p>Rate your sleep quality on a scale of 1-10.</p>
           <input
@@ -164,21 +145,21 @@
             placeholder="Rate                      "
           />
           <button id="submitRating-Btn">Submit Your Rating</button>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      <section id="calm-corner" class="calm__corner-intro">
-        <h2 class="calm__corner-title">CalmCorner</h2>
-        <p class="calm__corner-subtitle">
+      <section id="calm-corner" class="calm-corner">
+        <h2 class="calm-corner-title">CalmCorner</h2>
+        <p class="calm-corner-subtitle">
           Take a moment to breathe deeply—click to dive into this serene
           meditation and embrace instant calm and tranquility.
         </p>
 
-        <div id="calm-corner-video" class="calm__corner">
-          <ul class="calm__corner-videos">
+        <div id="calm-corner-video" class="calm-corner__video">
+          <ul class="calm-corner__videos">
             <li>
               <iframe
-                class="calm__corner-iframe"
+                class="calm-corner__iframe"
                 src="https://www.youtube.com/embed/caq8XpjAswo?si=8bDB-qjmVk4ZEslH"
                 title="YouTube video player"
                 frameborder="0"
@@ -193,57 +174,81 @@
     </main>
 
     <footer class="footer">
-      <ul class="footer__names">
-        <li class="footer__name">
-          <a href="https://github.com/Aar7" class="footer__name-link"
-            >Aaron Meighoo</a
-          >
-        </li>
-        <li class="footer__name">
-          <a href="https://github.com/britgaines" class="footer__name-link"
-            >Britney Gaines</a
-          >
-        </li>
-        <li class="footer__name">
-          <a href="https://github.com/pierrebrunel13" class="footer__name-link"
-            >Pierrebrunel Joseph</a
-          >
-        </li>
-        <li class="footer__name">
-          <a href="https://github.com/Jae277" class="footer__name-link"
-            >Jaelin Cooper</a
-          >
-        </li>
-      </ul>
-      <ul class="footer__credits">
-        <li class="footer__credit">
-          <a
-            href="https://americancancerfund.org/healthy-living/stress-reducers/?gad_source=1&gclid=Cj0KCQjwtpLABhC7ARIsALBOCVoqzjbXeyrUHp7af2aT9_EJKxGJpbgYCy2abEnSSPHh-v6O5EpjwBAaAh3_EALw_wcB"
-            class="footer__credit-link"
-            >Challenge Ideas</a
-          >
-        </li>
-        <li class="footer__credit">
-          <a
-            href="https://icons8.com/icons/set/tick/"
-            class="footer__credit-link"
-            >Icons were taken from here</a
-          >
-        </li>
+      <div class="footer__names-wrapper">
+        <p class="footer__title">Created by</p>
+        <ul class="footer__names">
+          <li class="footer__name">
+            <a
+              target="_blank"
+              href="https://github.com/Aar7"
+              class="footer__name-link"
+              >Aaron Meighoo</a
+            >
+          </li>
+          <li class="footer__name">
+            <a
+              target="_blank"
+              href="https://github.com/britgaines"
+              class="footer__name-link"
+              >Britney Gaines</a
+            >
+          </li>
+          <li class="footer__name">
+            <a
+              target="_blank"
+              href="https://github.com/pierrebrunel13"
+              class="footer__name-link"
+              >Pierrebrunel Joseph</a
+            >
+          </li>
+          <li class="footer__name">
+            <a
+              target="_blank"
+              href="https://github.com/Jae277"
+              class="footer__name-link"
+              >Jaelin Cooper</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="footer__credits-wrapper">
+        <p class="footer__title">Credits</p>
+        <ul class="footer__credits">
+          <li class="footer__credit">
+            <a
+              target="_blank"
+              href="https://americancancerfund.org/healthy-living/stress-reducers/?gad_source=1&gclid=Cj0KCQjwtpLABhC7ARIsALBOCVoqzjbXeyrUHp7af2aT9_EJKxGJpbgYCy2abEnSSPHh-v6O5EpjwBAaAh3_EALw_wcB"
+              class="footer__credit-link"
+              >Challenge Ideas</a
+            >
+          </li>
+          <li class="footer__credit">
+            <a
+              target="_blank"
+              href="https://icons8.com/icons/set/tick/"
+              class="footer__credit-link"
+              >Icons were taken from here</a
+            >
+          </li>
 
-        <li class="footer__credit">
-          <a
-            href="https://www.svgrepo.com/svg/287207/lotus"
-            class="footer__credit-link"
-            >Favicon</a
-          >
-        </li>
-        <li class="footer__credit">
-          <a href="https://boxy-svg.com/" class="footer__credit-link"
-            >Badges were created here</a
-          >
-        </li>
-      </ul>
+          <li class="footer__credit">
+            <a
+              target="_blank"
+              href="https://www.svgrepo.com/svg/287207/lotus"
+              class="footer__credit-link"
+              >Favicon</a
+            >
+          </li>
+          <li class="footer__credit">
+            <a
+              target="_blank"
+              href="https://boxy-svg.com/"
+              class="footer__credit-link"
+              >Badges were created here</a
+            >
+          </li>
+        </ul>
+      </div>
     </footer>
   </body>
 </html>

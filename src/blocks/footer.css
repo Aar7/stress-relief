@@ -1,14 +1,26 @@
 .footer {
-  background-color: rgba(255, 182, 193, 0.5);
-  width: 100%;
+  /* background-color: rgba(255, 182, 193, 0.5); */
+  background-color: rgba(253, 240, 255, 0.6);
+  /* width: 100%; */
+  width: 80vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 16px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.footer__names {
+  padding: 0;
+}
+
+.footer__credits {
+  padding: 0;
 }
 
 .footer__name {
   list-style-type: none;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
 }
 .footer__name-link {
@@ -23,7 +35,7 @@
 
 .footer__credit {
   list-style-type: none;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
 }
 .footer__credit-link {
