@@ -43,17 +43,32 @@
 
       <!-- routine builder -->
       <section class="routine__builder">
-        <h2>Build Your Routine</h2>
+        <h2 class="routine__builder__header">Build Your Routine</h2>
 
-        <ul id="routineList" class="routine__list">
-          <li>Meditation - 5 minutes</li>
-          <li>Light Streching - 5 minutes</li>
-          <li>Reduce Screen Time - 5 minutes</li>
-          <li>Read a Book - 5 minutes</li>
-          <li>Deep Breathing - 5 minutes</li>
+        <ul id="routine__builder__list" class="routine__list">
+          <!-- <li class="routine__builder__list-item">Meditation - 5 minutes</li>
+          <li class="routine__builder__list-item">
+            Light Streching - 5 minutes
+          </li>
+          <li class="routine__builder__list-item">
+            Reduce Screen Time - 5 minutes
+          </li>
+          <li class="routine__builder__list-item">Read a Book - 5 minutes</li>
+          <li class="routine__builder__list-item">
+            Deep Breathing - 5 minutes
+          </li> -->
+          <template id="routine-step-template">
+            <li class="routine__step">
+              <p class="routine__step-info">
+                Do <span class="routine__step-name"></span> for
+                <span class="routine__step-duration"></span> minutes
+              </p>
+              <button class="routine__step-done-btn">Done</button>
+            </li>
+          </template>
         </ul>
         <button id="deleteRotine-Btn">- Delete Routine Step</button>
-        <button id="addStep-Btn">- Add Routine Step</button>
+        <button id="addStep-Btn">+ Add Routine Step</button>
       </section>
 
       <section id="calm-corner" class="calm__corner-intro">
@@ -82,15 +97,6 @@
       </section>
 
       <!-- step template -->
-      <template id="routine-step-template">
-        <li class="routine__step">
-          <div class="routine__step-info">
-            <span class="routine__step-name">Step Name</span>
-            <span class="routine__step-duration">Duration</span>
-          </div>
-          <button class="routine__step-done-btn">Done</button>
-        </li>
-      </template>
 
       <div id="timerSection" style="text-align: center">
         <h2 id="currentStepTitle">Wind Down Timer</h2>

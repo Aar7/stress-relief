@@ -13,7 +13,7 @@ export const startBtn = document.getElementById("startTimer-Btn");
 export const pauseBtn = document.getElementById("pauseTimer-Btn");
 export const stopBtn = document.getElementById("stopTimer-Btn");
 
-export const routineList = document.getElementById("routineList");
+export const routineList = document.getElementById("routine__builder__list");
 export const addStepBtn = document.getElementById("addStep-Btn");
 export const deleteStepBtn = document.getElementById("deleteRotine-Btn");
 export const stepTemplate = document.getElementById("routine-step-template");
