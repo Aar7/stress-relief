@@ -16,24 +16,26 @@
   <body class="body">
     <header class="header"><h1>Defuse</h1></header>
     <main class="main">
-      <section class="challenges">
-        <h2 class="challenges__heading">Daily Challenges</h2>
-        <ul class="challenges__list">
-          <template id="add-challenge">
-            <li class="challenge">
-              <p class="challenge__title"></p>
-              <button class="challenge__complete-button">
-                Click to complete!
-              </button>
-            </li>
-          </template>
-        </ul>
-      </section>
+      <section class="challenges-badges">
+        <div class="challenges">
+          <h2 class="challenges__heading">Daily Challenges</h2>
+          <ul class="challenges__list">
+            <template id="add-challenge">
+              <li class="challenge">
+                <p class="challenge__title"></p>
+                <button class="challenge__complete-button">
+                  Click to complete!
+                </button>
+              </li>
+            </template>
+          </ul>
+        </div>
 
-      <section class="badges">
-        <template id="add-badge">
-          <img class="badges__image streak" />
-        </template>
+        <div class="badges">
+          <template id="add-badge">
+            <img class="badges__image streak" />
+          </template>
+        </div>
       </section>
 
       <section class="routine__intro">
@@ -44,23 +46,13 @@
       <!-- routine builder -->
       <section class="routine__builder">
         <h2 class="routine__builder__header">Build Your Routine</h2>
+        <p class="routine__builder__example">e.g Read a Book for 25 minutes</p>
 
         <ul id="routine__builder__list" class="routine__list">
-          <!-- <li class="routine__builder__list-item">Meditation - 5 minutes</li>
-          <li class="routine__builder__list-item">
-            Light Streching - 5 minutes
-          </li>
-          <li class="routine__builder__list-item">
-            Reduce Screen Time - 5 minutes
-          </li>
-          <li class="routine__builder__list-item">Read a Book - 5 minutes</li>
-          <li class="routine__builder__list-item">
-            Deep Breathing - 5 minutes
-          </li> -->
           <template id="routine-step-template">
             <li class="routine__step">
               <p class="routine__step-info">
-                Do <span class="routine__step-name"></span> for
+                <span class="routine__step-name"></span> for
                 <span class="routine__step-duration"></span> minutes
               </p>
               <button class="routine__step-done-btn">Done</button>
@@ -146,9 +138,9 @@
         <h2>Wind Down Timer</h2>
         <p>Time to unplug and wind down 5-minute meditation coming up</p>
         <div id="countdownDisplay"></div>
-        <button id="stopTimer-Btn">Stop Timer</button>
-        <button id="pauseTimer-Btn">Pause Timer</button>
-        <button id="startTimer-Btn">Start Timer</button>
+        <button id="stopTimer-Btn">Stop and reset timer</button>
+        <button id="pauseTimer-Btn">Pause timer</button>
+        <button id="startTimer-Btn">Start timer</button>
       </section>
 
       <!-- reminders -->
@@ -161,18 +153,13 @@
           <template id="add-reminder">
             <li class="reminder">
               <p class="reminder__name"></p>
-              <button class="reminder__delete-button">Delete reminder</button>
+              <button class="reminder__delete-button">Delete</button>
+              <button class="reminder__done-button">Done</button>
             </li>
           </template>
-          <!-- <li>“clean room at 1pm everyday.”</li>
-          <li>“Turn phone off for 25 minutes”</li>
-          <li>“Read for 20 minutes”</li>
-          <li>“Time to unplug and wind down.”</li>
-          <li>“5-minute meditation coming up.”</li> -->
         </ul>
 
         <button id="setReminder-Btn">Set Reminder</button>
-        <!-- <button id="deleteReminder-Btn">Delete Reminder</button> -->
       </section>
 
       <!-- progress tracker -->
