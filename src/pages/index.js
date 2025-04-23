@@ -1,5 +1,6 @@
 import "./index.css";
-import { challengeList } from "../utils/challenges.js";
+import badge50 from "../images/badge-streak-50.svg";
+import { badgeList, challengeList } from "../utils/constants.js";
 import {
   checkDayStreak,
   checkLocalStorage,
@@ -29,16 +30,39 @@ const today = new Date();
 // need to initialise the localStorage object if it is empty
 checkLocalStorage();
 checkDayStreak(today);
+checkStreakBadge();
 
-// function toggleButtonState(challengeComplete, challenge) {
-//   if (challengeComplete) {
-//     challenge._completeButton.textContent = "Challenge complete!";
-//     challenge._completeButton.classList.add(
-//       "challenge__complete-button_inactive"
-//     );
-//     challenge._completeButton.setAttribute("disabled", "");
-//   }
-// }
+function checkStreakBadge() {
+  // console.warn("In check streak");
+  /*
+  If streak is 1,3,5,10,20,50,75,100,365, display that badge for the user
+  - check localstorage to determine if the user has earned that badge
+  */
+  const streak = JSON.parse(getLocal("streak"));
+  const badge = badgeList.find((element) => {
+    return streak >= element;
+  });
+
+  console.log(`badge: ${badge}`);
+
+  if (badge != undefined) {
+    // award badge here
+    const badgesNode = document
+      .querySelector("#add-badge")
+      .content.querySelector(".badges__image")
+      .cloneNode(true);
+    const badgesSection = document.querySelector(".badges");
+
+    // badgesNode.setAttribute("src", `./images/badge-streak-${badge}.svg`);
+    badgesNode.src = badge50;
+    // badgesNode.setAttribute("src", "<%=badge50%>");
+    console.log(badgesSection);
+    console.log(badgesNode);
+    badgesSection.append(badgesNode);
+
+    // console.log(badgesNode);
+  }
+}
 
 function handleClickCompleteChallenge(challenge) {
   // console.log("Inside click-to-complete handler");

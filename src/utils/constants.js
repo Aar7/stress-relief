@@ -17,3 +17,5 @@ export const challengeList = [
   { name: "Feeling anxious? Count backwards from 50", difficulty: 2 },
   { name: "Engage in one leisure today", difficulty: 1 },
 ];
+
+export const badgeList = [3, 5, 10, 20, 50, 75, 100, 365];

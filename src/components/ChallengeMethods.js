@@ -153,6 +153,9 @@ export function checkDayStreak(today) {
     // streak increases only after 24 hours, but less than 48 hours have passed
     setLocal("date", new Date()); // set streak checkpoint
     setLocal("streak", streak + 1); // increase streak by 1
+    // call badgestreak checker
+    if (streak + 1 > 2) {
+    }
   } else if (dateDifference > 172800000) {
     // re-set streak to zero, reset challenge array in localStorage to empty
     setLocal("date", new Date()); // set streak checkpoint
