@@ -1,0 +1,6 @@
+.challenges-badges {
+  /* background-color: aliceblue; */
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+}

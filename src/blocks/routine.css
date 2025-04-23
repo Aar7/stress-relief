@@ -8,7 +8,7 @@
 }
 
 .routine__builder {
-  background-color: white;
+  background-color: rgba(253, 240, 255, 0.6);
   border-radius: 16px;
   padding: 25px;
   margin-bottom: 30px;
@@ -55,7 +55,7 @@ button:hover {
   color: #311b92;
 }
 
-.routine__builder h2 {
+.routine__builder__title {
   color: var(--deep-purple);
   font-size: 28px;
   margin-bottom: 20px;

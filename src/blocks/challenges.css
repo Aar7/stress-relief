@@ -1,3 +1,26 @@
+.challenges {
+  background-color: rgba(253, 240, 255, 0.6);
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.challenge {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.challenges__heading {
+  color: #6a0dad;
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 10px;
+  /* text-align: center; */
+}
+
 .challenge:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -43,21 +66,6 @@
 }
 
 /* Challenges container */
-.challenges {
-  background: white;
-  border-radius: 16px;
-  padding: 32px;
-  width: 100%;
-  max-width: 600px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.challenges__heading {
-  color: #6a0dad;
-  font-size: 24px;
-  margin-bottom: 24px;
-  text-align: center;
-}
 
 .challenges__list {
   list-style: none;

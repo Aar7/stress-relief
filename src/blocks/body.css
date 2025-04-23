@@ -1,7 +1,9 @@
 .body {
   /*background-color: #9732cd;*/
   /* max-width: 80vw;  */
-  background-image: url(../images/background-defuse.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/background-defuse.jpg);
+  /* opacity: 0.3; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
