@@ -1,8 +1,8 @@
 export default class Reminder {
-  constructor(name, handleDeleteReminder) {
+  constructor(name, handleDeleteStep) {
     this._name = name;
     // this._difficulty = difficulty;
-    this._handleDeleteReminder = handleDeleteReminder;
+    this._handleDeleteStep = handleDeleteStep;
     this._reminderTemplate = document
       .querySelector("#add-reminder")
       .content.querySelector(".reminder")
@@ -12,21 +12,20 @@ export default class Reminder {
     this._deleteButton = this._reminderTemplate.querySelector(
       ".reminder__delete-button"
     );
+    this._doneButton = this._reminderTemplate.querySelector(
+      ".reminder__done-button"
+    );
   }
 
   _setEventListeners() {
     this._deleteButton.addEventListener("click", () => {
-      this._handleDeleteReminder(this);
+      this._handleDeleteStep(this);
     });
-    this._templateName.addEventListener("click", (e) => {
-      console.log("Event");
-      console.log(e.target.tagName);
-      if (e.target.tagName === "P") {
-        e.target.style.textDecoration =
-          e.target.style.textDecoration === "line-through"
-            ? "none"
-            : "line-through";
-      }
+    this._doneButton.addEventListener("click", (e) => {
+      this._reminderTemplate.style.textDecoration =
+        this._reminderTemplate.style.textDecoration === "line-through"
+          ? "none"
+          : "line-through";
     });
   }
 

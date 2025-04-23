@@ -9,6 +9,7 @@ import {
   setLocal,
 } from "../components/ChallengeMethods.js";
 import { setReminder } from "../components/ReminderMethods.js";
+import { setRoutineItem } from "../components/RoutineStepMethods.js";
 import {
   dailyChallengeList,
   remindersList,
@@ -92,6 +93,22 @@ function handleClickCompleteChallenge(challenge) {
   setLocal("challengePoints", JSON.parse(getLocal("challengePoints")) + diff);
 }
 
+/**
+ * Used in any section where a reminder-like item needs to be deleted. Deletes that object
+ * @param {object} step
+ */
+function handleDeleteStep(step) {
+  step.deleteCard();
+}
+
+function handleDoneStep(step) {
+  console.log(step);
+  step._routineTemplate.style.textDecoration =
+    step._routineTemplate.style.textDecoration === "line-through"
+      ? "none"
+      : "line-through";
+}
+
 getChallenges(
   challengeList,
   numOfChallenges,
@@ -103,47 +120,15 @@ console.log(localStorage);
 // localStorage.clear();
 // === Routine Steps ===
 
-addStepBtn.addEventListener("click", () => {
-  const stepName = prompt("Enter the step name:");
-  const duration = prompt("Enter duration ( 5 minutes):");
-
-  if (stepName && duration) {
-    const clone = stepTemplate.content.cloneNode(true);
-    const nameSpan = clone.querySelector(".routine__step-name");
-    const durationSpan = clone.querySelector(".routine__step-duration");
-
-    if (nameSpan && durationSpan) {
-      nameSpan.textContent = stepName;
-      durationSpan.textContent = duration;
-      routineList.appendChild(clone);
-    } else {
-      console.error("Missing .routine__step-name or .routine__step-duration");
-    }
-  }
-
-  // === Timer ===
-  let timeLeft = 300; // 5 minutes in seconds
-  const countdownDisplay = document.querySelector("#countdownDisplay");
-
-  function updateTimerDisplay() {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-    countdownDisplay.textContent = `${String(minutes).padStart(
-      2,
-      "0"
-    )}:${String(seconds).padStart(2, "0")}`;
-  }
-});
-
-deleteStepBtn.addEventListener("click", () => {
-  if (routineList.lastElementChild) {
-    routineList.removeChild(routineList.lastElementChild);
-  }
-});
+// deleteStepBtn.addEventListener("click", () => {
+//   if (routineList.lastElementChild) {
+//     routineList.removeChild(routineList.lastElementChild);
+//   }
+// });
 
 // === Timer ===
 let countdownInterval;
-let timeLeft = 300; // 5 minutes in seconds
+let timeLeft = 5; // 5 minutes in seconds
 
 function updateTimerDisplay() {
   const minutes = Math.floor(timeLeft / 60);
@@ -168,13 +153,6 @@ function startTimer() {
 
 updateTimerDisplay();
 
-// === Reminders ===
-
-function handleDeleteReminder(reminder) {
-  // console.log(reminder);
-  reminder.deleteCard();
-}
-
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", () => clearInterval(countdownInterval));
 stopBtn.addEventListener("click", () => {
@@ -183,10 +161,42 @@ stopBtn.addEventListener("click", () => {
   updateTimerDisplay();
 });
 
+addStepBtn.addEventListener("click", () => {
+  let stepName;
+  let duration;
+  while (!stepName) {
+    stepName = prompt("What do you want to do?");
+  }
+  while (!duration /* && !isNaN(Number(duration)) */) {
+    duration = prompt(`For how long to you want to ${stepName}?`);
+  }
+
+  if (stepName && duration) {
+    // const stepNode = stepTemplate.content.cloneNode(true);
+    // const nameSpan = stepNode.querySelector(".routine__step-name");
+    // const durationSpan = stepNode.querySelector(".routine__step-duration");
+
+    // if (nameSpan && durationSpan) {
+    //   nameSpan.textContent = stepName;
+    //   durationSpan.textContent = duration;
+    //   routineList.appendChild(stepNode);
+    // } else {
+    //   console.error("Missing .routine__step-name or .routine__step-duration");
+    // }
+    setRoutineItem(
+      stepName,
+      duration,
+      routineList,
+      handleDeleteStep,
+      handleDoneStep
+    );
+  }
+});
+
 setReminderBtn.addEventListener("click", () => {
   console.log("Set reminder button pressed");
   const newReminder = prompt("Enter your reminder:");
-  setReminder(newReminder, setReminderBtn, handleDeleteReminder, remindersList);
+  setReminder(newReminder, setReminderBtn, handleDeleteStep, remindersList);
 });
 
 // === Sleep Quality Rating ===
