@@ -1,6 +1,10 @@
 .body {
-  background-color: #9732cd;
+  /*background-color: #9732cd;*/
   /* max-width: 80vw;  */
+  background-image: url(../images/background-defuse.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: auto;
   height: auto;
   display: flex;
@@ -9,4 +13,3 @@
   padding: 25px;
   font-family: "Monsterrat", Arial, Helvetica, sans-serif;
 }
-
