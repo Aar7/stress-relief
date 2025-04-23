@@ -2,20 +2,22 @@
   color: #fff;
   background-color: url(../images/background-defuse.jpg);
   z-index: 1;
-  padding: 80px 70px 190px;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .calm__corner-intro {
-  background: linear-gradient(135deg, #d1c4e9, #ede7f6);
+  background-color: rgba(253, 240, 255, 0.6);
+
+  /*background: linear-gradient(135deg, #d1c4e9, #ede7f6);*/
   border-radius: 16px;
   padding: 30px;
   margin-bottom: 30px;
+  margin-top: 30px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(94, 53, 177, 0.1);
 }
 
-.calm__corner-intro h1 {
+.calm__corner-title {
   color: #5e35b1;
   font-size: 40px;
   margin-bottom: 10px;
@@ -25,7 +27,7 @@
   gap: 10px;
 }
 
-.calm__corner-intro p {
+.calm__corner-subtitle {
   font-size: 18px;
   color: #311b92;
 }
@@ -33,13 +35,12 @@
 .calm__corner-videos {
   display: flex;
   justify-content: center;
-  gap: 40px;
   list-style-type: none;
 }
 
 .calm__corner-iframe {
   border: none;
-  width: 480px;
-  height: 273px;
+  width: 560px;
+  height: 315px;
   display: flex;
 }

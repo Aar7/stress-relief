@@ -38,176 +38,207 @@
           </template>
         </div>
       </section>
-
       <!-- <section class="routine__intro"> -->
       <!-- </section> -->
 
       <!-- routine builder -->
-      <section class="routine__builder">
-        <h2 class="routine__builder__title">Cozyclock🪵</h2>
-        <p>Create your cozy bedtime routine to wind down and sleep better.</p>
-        <h2 class="routine__builder__header">Build Your Routine</h2>
-        <p class="routine__builder__example">e.g Read a Book for 25 minutes</p>
+      <div class="cozy__clock">
+        <section class="routine__builder">
+          <h2 class="routine__builder-title">Cozyclock🪵</h2>
+          <p class="routine__builder-subtitle">
+            Create your cozy bedtime routine to wind down and sleep better.
+          </p>
+          <h2 class="routine__builder__header">Build Your Routine</h2>
+          <p class="routine__builder__example">
+            e.g Read a Book for 25 minutes
+          </p>
 
-        <ul id="routine__builder__list" class="routine__list">
-          <template id="routine-step-template">
-            <li class="routine__step">
-              <p class="routine__step-info">
-                <span class="routine__step-name"></span> for
-                <span class="routine__step-duration"></span> minutes
-              </p>
-              <button class="routine__step-done-btn">Done</button>
-            </li>
-          </template>
-        </ul>
-        <button id="deleteRotine-Btn">- Delete Routine Step</button>
-        <button id="addStep-Btn">+ Add Routine Step</button>
-      </section>
+          <ul id="routine__builder__list" class="routine__list">
+            <template id="routine-step-template">
+              <li class="routine__step">
+                <p class="routine__step-info">
+                  <span class="routine__step-name"></span> for
+                  <span class="routine__step-duration"></span> minutes
+                </p>
+                <button class="routine__step-done-btn">Done</button>
+              </li>
+            </template>
+          </ul>
+          <button id="deleteRotine-Btn">- Delete Routine Step</button>
+          <button id="addStep-Btn">+ Add Routine Step</button>
+        </section>
+        <!-- step template -->
+
+        <div id="timerSection" style="text-align: center">
+          <h2 id="currentStepTitle">Wind Down Timer</h2>
+
+          <div
+            style="
+              position: relative;
+              width: 150px;
+              height: 150px;
+              margin: auto;
+            "
+          >
+            <svg width="150" height="150">
+              <circle
+                cx="75"
+                cy="75"
+                r="70"
+                stroke="#e0e0e0"
+                stroke-width="10"
+                fill="none"
+              />
+              <circle
+                id="progressRing"
+                cx="75"
+                cy="75"
+                r="70"
+                stroke="#4caf50"
+                stroke-width="10"
+                fill="none"
+                stroke-dasharray="439.6"
+                stroke-dashoffset="0"
+                transform="rotate(-90 75 75)"
+              />
+            </svg>
+            <div
+              id="countdownDisplay"
+              style="
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 1.5rem;
+              "
+            >
+              00:00
+            </div>
+          </div>
+        </div>
+
+        <!-- wind down timer -->
+        <section class="routine__timer">
+          <h2>Wind Down Timer</h2>
+          <p>Time to unplug and wind down 5-minute meditation coming up</p>
+          <div id="countdownDisplay"></div>
+          <button id="stopTimer-Btn">Stop and reset timer</button>
+          <button id="pauseTimer-Btn">Pause timer</button>
+          <button id="startTimer-Btn">Start timer</button>
+        </section>
+
+        <!-- reminders -->
+        <section class="routine__reminders">
+          <h2 class="routine__reminders__heading">Reminders</h2>
+          <p class="routine__reminders__text">
+            Set reminders to unplug and relax.
+          </p>
+          <ul class="routine__reminders__list">
+            <template id="add-reminder">
+              <li class="reminder">
+                <p class="reminder__name"></p>
+                <button class="reminder__delete-button">Delete</button>
+                <button class="reminder__done-button">Done</button>
+              </li>
+            </template>
+          </ul>
+
+          <button id="setReminder-Btn">Set Reminder</button>
+        </section>
+
+        <!-- progress tracker -->
+        <section class="routine__progress">
+          <h2>Progress Tracker</h2>
+        </section>
+
+        <!-- sleep quality rating -->
+        <section class="routine__sleep-quality">
+          <h2>Sleep Quality Rating</h2>
+          <p>Rate your sleep quality on a scale of 1-10.</p>
+          <input
+            type="number"
+            min="0"
+            max="10"
+            placeholder="Rate                      "
+          />
+          <button id="submitRating-Btn">Submit Your Rating</button>
+        </section>
+      </div>
 
       <section id="calm-corner" class="calm__corner-intro">
-        <h2>CalmCorner</h2>
-        <p>
+        <h2 class="calm__corner-title">CalmCorner</h2>
+        <p class="calm__corner-subtitle">
           Take a moment to breathe deeply—click to dive into this serene
           meditation and embrace instant calm and tranquility.
         </p>
-      </section>
 
-      <section id="calm-corner" class="calm__corner">
-        <ul class="calm__corner-videos">
-          <li>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/caq8XpjAswo?si=8bDB-qjmVk4ZEslH"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </li>
-        </ul>
-      </section>
-
-      <!-- step template -->
-
-      <div id="timerSection" style="text-align: center">
-        <h2 id="currentStepTitle">Wind Down Timer</h2>
-
-        <div
-          style="position: relative; width: 150px; height: 150px; margin: auto"
-        >
-          <svg width="150" height="150">
-            <circle
-              cx="75"
-              cy="75"
-              r="70"
-              stroke="#e0e0e0"
-              stroke-width="10"
-              fill="none"
-            />
-            <circle
-              id="progressRing"
-              cx="75"
-              cy="75"
-              r="70"
-              stroke="#4caf50"
-              stroke-width="10"
-              fill="none"
-              stroke-dasharray="439.6"
-              stroke-dashoffset="0"
-              transform="rotate(-90 75 75)"
-            />
-          </svg>
-          <div
-            id="countdownDisplay"
-            style="
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              font-size: 1.5rem;
-            "
-          >
-            00:00
-          </div>
-        </div>
-      </div>
-
-      <!-- wind down timer -->
-      <section class="routine__timer">
-        <h2>Wind Down Timer</h2>
-        <p>Time to unplug and wind down 5-minute meditation coming up</p>
-        <div id="countdownDisplay"></div>
-        <button id="stopTimer-Btn">Stop and reset timer</button>
-        <button id="pauseTimer-Btn">Pause timer</button>
-        <button id="startTimer-Btn">Start timer</button>
-      </section>
-
-      <!-- reminders -->
-      <section class="routine__reminders">
-        <h2 class="routine__reminders__heading">Reminders</h2>
-        <p class="routine__reminders__text">
-          Set reminders to unplug and relax.
-        </p>
-        <ul class="routine__reminders__list">
-          <template id="add-reminder">
-            <li class="reminder">
-              <p class="reminder__name"></p>
-              <button class="reminder__delete-button">Delete</button>
-              <button class="reminder__done-button">Done</button>
+        <div id="calm-corner-video" class="calm__corner">
+          <ul class="calm__corner-videos">
+            <li>
+              <iframe
+                class="calm__corner-iframe"
+                src="https://www.youtube.com/embed/caq8XpjAswo?si=8bDB-qjmVk4ZEslH"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
             </li>
-          </template>
-        </ul>
-
-        <button id="setReminder-Btn">Set Reminder</button>
-      </section>
-
-      <!-- progress tracker -->
-      <section class="routine__progress">
-        <h2>Progress Tracker</h2>
-      </section>
-
-      <!-- sleep quality rating -->
-      <section class="routine__sleep-quality">
-        <h2>Sleep Quality Rating</h2>
-        <p>Rate your sleep quality on a scale of 1-10.</p>
-        <input
-          type="number"
-          min="0"
-          max="10"
-          placeholder="Rate                      "
-        />
-        <button id="submitRating-Btn">Submit Your Rating</button>
+          </ul>
+        </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="footer__names">
-        <p class="footer__name">
-          <a href="https://github.com/Aar7">Aaron Meighoo</a>
-        </p>
-        <p class="footer__name">
-          <a href="https://github.com/britgaines">Britney Gaines</a>
-        </p>
-        <p class="footer__name">
-          <a href="https://github.com/pierrebrunel13">Pierrebrunel Joseph</a>
-        </p>
-        <p class="footer__name">
-          <a href="https://github.com/Jae277">Jaelin Cooper</a>
-        </p>
-      </div>
-      <div class="footer__credits">
-        <a
-          href="https://americancancerfund.org/healthy-living/stress-reducers/?gad_source=1&gclid=Cj0KCQjwtpLABhC7ARIsALBOCVoqzjbXeyrUHp7af2aT9_EJKxGJpbgYCy2abEnSSPHh-v6O5EpjwBAaAh3_EALw_wcB"
-          >Challenge Ideas</a
-        >
-        <a href="https://www.svgrepo.com/svg/287207/lotus">favicon</a>
-        <a href="https://boxy-svg.com/">Badges were created here</a>
-        <a href="https://icons8.com/icons/set/tick/"
-          >Icons were taken from here</a
-        >
-      </div>
+      <ul class="footer__names">
+        <li class="footer__name">
+          <a href="https://github.com/Aar7" class="footer__name-link"
+            >Aaron Meighoo</a
+          >
+        </li>
+        <li class="footer__name">
+          <a href="https://github.com/britgaines" class="footer__name-link"
+            >Britney Gaines</a
+          >
+        </li>
+        <li class="footer__name">
+          <a href="https://github.com/pierrebrunel13" class="footer__name-link"
+            >Pierrebrunel Joseph</a
+          >
+        </li>
+        <li class="footer__name">
+          <a href="https://github.com/Jae277" class="footer__name-link"
+            >Jaelin Cooper</a
+          >
+        </li>
+      </ul>
+      <ul class="footer__credits">
+        <li class="footer__credit">
+          <a
+            href="https://americancancerfund.org/healthy-living/stress-reducers/?gad_source=1&gclid=Cj0KCQjwtpLABhC7ARIsALBOCVoqzjbXeyrUHp7af2aT9_EJKxGJpbgYCy2abEnSSPHh-v6O5EpjwBAaAh3_EALw_wcB"
+            class="footer__credit-link"
+            >Challenge Ideas</a
+          >
+        </li>
+        <li class="footer__credit">
+          <a href="https://icons8.com/icons/set/tick/"
+            >Icons were taken from here</a
+          >
+        </li>
+        <li class="footer__credit">
+          <a
+            href="https://www.svgrepo.com/svg/287207/lotus"
+            class="footer__credit-link"
+            >favicon</a
+          >
+        </li>
+        <li class="footer__credit">
+          <a href="https://boxy-svg.com/" class="footer__credit-link"
+            >Badges were created here</a
+          >
+        </li>
+      </ul>
     </footer>
   </body>
 </html>

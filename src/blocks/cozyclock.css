@@ -1,0 +1,7 @@
+.cozy__clock {
+  background-color: rgba(253, 240, 255, 0.6);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(126, 87, 194, 0.1);
+}
