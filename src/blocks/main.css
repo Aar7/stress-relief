@@ -2,5 +2,8 @@
   width: 80vw;
   /* background-color: gray; */
   /* height: 50vh; */
-  background: linear-gradient(135deg, #6A0DAD 0%, #B399D4 100%);  
+  /*background: linear-gradient(135deg, #6A0DAD 0%, #B399D4 100%);  */
+  background-color: #6a0dad;
+  opacity: 0.95;
+  border-radius: 0.8;
 }

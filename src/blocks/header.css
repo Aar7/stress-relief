@@ -1,19 +1,21 @@
 .header {
-  padding: 10px 0;
-  display: flex;
-  justify-content: center;
-  width: 80vw;
-  height: 100px;
-  background-image: url(../images/background-defuse.jpg);
-  z-index: -1;
-  opacity: 0.8;
-  background-size: cover;
-  background-position: center;
+  background: transparent;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 0 auto;
+  box-sizing: border-box;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(94, 53, 177, 0.1);
 }
 
-.header__heading {
-  margin-top: 20px;
+.header h1 {
+  color: rgba(0, 0, 0, 0.95);
   font-family: "Playwrite", Arial, Helvetica, sans-serif;
-  color: #fff;
+  font-size: 80px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
 }
